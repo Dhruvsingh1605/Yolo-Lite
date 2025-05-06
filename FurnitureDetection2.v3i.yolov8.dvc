@@ -1,0 +1,6 @@
+outs:
+- md5: 4eebe9b0cbddfa8c9e8467268e7879ac.dir
+  size: 124455475
+  nfiles: 11883
+  hash: md5
+  path: FurnitureDetection2.v3i.yolov8
