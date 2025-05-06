@@ -1,0 +1,6 @@
+stages:
+  prepare_data:
+    cmd: Disk/Yolo-Lite/Yolo-Lite/FurnitureDetection2.v3i.yolov8/data.yaml -d scripts/prepare_data.py
+      -o data/processed python scripts/prepare_data.py
+    deps:
+    - /media/dhruv/Local
