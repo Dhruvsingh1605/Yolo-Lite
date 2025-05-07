@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/aba088654636471a9114a0f249079165/artifacts
+deleted_time: 1746607482662
+end_time: 1746607278290
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: aba088654636471a9114a0f249079165
+run_name: yolov4-tiny_20250507-141117
+run_uuid: aba088654636471a9114a0f249079165
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746607278209
+status: 3
+tags: []
+user_id: dhruv

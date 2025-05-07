@@ -1,0 +1,5 @@
+2025-05-07 14:53:17,889 INFO:  GPU isn't used 
+ OpenCV isn't used - data augmentation will be slow 
+Couldn't open file: cfg/obj.data
+
+2025-05-07 14:53:17,896 INFO: Evaluation complete: mAP=0.73, loss=1.1

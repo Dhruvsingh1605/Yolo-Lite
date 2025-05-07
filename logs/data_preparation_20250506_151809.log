@@ -1,0 +1,7 @@
+2025-05-06 15:18:09,686 [INFO] Starting data preparation...
+2025-05-06 15:18:09,688 [INFO] ✅ Saved class names to data/processed/classes.names
+2025-05-06 15:18:09,688 [INFO] Processing train set from /media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/FurnitureDetection2.v3i.yolov8/train/images
+2025-05-06 15:20:29,494 [INFO] Finished writing train.txt and copying files.
+2025-05-06 15:20:29,494 [INFO] Processing val set from /media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/FurnitureDetection2.v3i.yolov8/valid/images
+2025-05-06 15:20:44,369 [INFO] Finished writing val.txt and copying files.
+2025-05-06 15:20:44,370 [INFO] Data preparation complete.

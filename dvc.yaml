@@ -14,3 +14,12 @@ stages:
     - models/yolov4-tiny/last.weights
     metrics:
     - models/yolov4-tiny/metrics.json
+  evaluate_model:
+    cmd: python scripts/evaluate.py
+    deps:
+    - models/yolov4-tiny/last.weights
+    - data/processed
+    outs:
+    - models/yolov4-tiny/eval_metrics.json
+    metrics:
+    - models/yolov4-tiny/eval_metrics.json

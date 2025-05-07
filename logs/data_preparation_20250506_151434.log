@@ -1,0 +1,7 @@
+2025-05-06 15:14:34,187 [INFO] Starting data preparation...
+2025-05-06 15:14:34,189 [INFO] ✅ Saved class names to data/processed/classes.names
+2025-05-06 15:14:34,189 [INFO] Processing train set from ../train/images
+2025-05-06 15:14:34,190 [INFO] Finished writing train.txt and copying files.
+2025-05-06 15:14:34,190 [INFO] Processing val set from ../valid/images
+2025-05-06 15:14:34,191 [INFO] Finished writing val.txt and copying files.
+2025-05-06 15:14:34,192 [INFO] Data preparation complete.

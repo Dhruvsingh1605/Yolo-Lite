@@ -1,0 +1,5 @@
+2025-05-07 14:23:06,226 INFO: Starting training run
+2025-05-07 14:23:06,229 INFO:  GPU isn't used 
+ OpenCV isn't used - data augmentation will be slow 
+Couldn't open file: cfg/obj.data
+
