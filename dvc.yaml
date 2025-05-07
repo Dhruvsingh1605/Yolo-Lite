@@ -4,3 +4,13 @@ stages:
       -o data/processed python scripts/prepare_data.py
     deps:
     - /media/dhruv/Local
+  train_model:
+    cmd: python scripts/train.py
+    deps:
+    - cfg/yolov4-tiny-custom.cfg
+    - data/processed
+    - scripts/train.py
+    outs:
+    - models/yolov4-tiny/last.weights
+    metrics:
+    - models/yolov4-tiny/metrics.json
