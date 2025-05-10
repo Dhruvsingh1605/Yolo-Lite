@@ -1,0 +1,60 @@
+2025-05-10 09:59:30,827 INFO: ▶ Running: /usr/bin/python3 save_model.py --weights models/yolov4-tiny/last.weights --output models/yolov4-tiny/saved_model --model yolov4 --tiny --input_size 320 --framework tf
+2025-05-10 09:59:35,927 INFO: stdout:
+
+2025-05-10 09:59:35,927 ERROR: stderr:
+2025-05-10 09:59:31.203880: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1746851371.220983   45191 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1746851371.225665   45191 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1746851371.238906   45191 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746851371.238928   45191 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746851371.238930   45191 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746851371.238932   45191 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-05-10 09:59:31.242502: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-05-10 09:59:35.009423: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+Traceback (most recent call last):
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/save_model.py", line 58, in <module>
+    app.run(main)
+  File "/home/dhruv/.local/lib/python3.10/site-packages/absl/app.py", line 308, in run
+    _run_main(main, args)
+  File "/home/dhruv/.local/lib/python3.10/site-packages/absl/app.py", line 254, in _run_main
+    sys.exit(main(argv))
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/save_model.py", line 54, in main
+    save_tf()
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/save_model.py", line 20, in save_tf
+    feature_maps = YOLO(input_layer, NUM_CLASS, FLAGS.model, FLAGS.tiny)
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/core/yolov4.py", line 20, in YOLO
+    return YOLOv4_tiny(input_layer, NUM_CLASS)
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/core/yolov4.py", line 130, in YOLOv4_tiny
+    route_1, conv = backbone.cspdarknet53_tiny(input_layer)
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/core/backbone.py", line 108, in cspdarknet53_tiny
+    input_data = common.convolutional(input_data, (3, 3, 3, 32), downsample=True)
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/core/common.py", line 36, in convolutional
+    conv = tf.nn.leaky_relu(conv, alpha=0.1)
+  File "/home/dhruv/.local/lib/python3.10/site-packages/tensorflow/python/ops/weak_tensor_ops.py", line 88, in wrapper
+    return op(*args, **kwargs)
+  File "/home/dhruv/.local/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/dhruv/.local/lib/python3.10/site-packages/keras/src/backend/common/keras_tensor.py", line 156, in __tf_tensor__
+    raise ValueError(
+ValueError: A KerasTensor cannot be used as input to a TensorFlow function. A KerasTensor is a symbolic placeholder for a shape and dtype, used when constructing Keras Functional models or Keras Functions. You can only use it as input to a Keras layer or a Keras operation (from the namespaces `keras.layers` and `keras.ops`). You are likely doing something like:
+
+```
+x = Input(...)
+...
+tf_fn(x)  # Invalid.
+```
+
+What you should do instead is wrap `tf_fn` in a layer:
+
+```
+class MyLayer(Layer):
+    def call(self, x):
+        return tf_fn(x)
+
+x = MyLayer()(x)
+```
+
+
+2025-05-10 09:59:35,927 ERROR: ❌ save_model.py failed (code 1)

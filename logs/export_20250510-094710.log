@@ -1,0 +1,26 @@
+2025-05-10 09:47:10,856 INFO: Starting model export
+2025-05-10 09:47:16,352 INFO: save_model stdout:
+
+2025-05-10 09:47:16,356 ERROR: save_model stderr:
+2025-05-10 09:47:11.233344: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1746850631.252075   44373 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1746850631.257168   44373 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1746850631.269548   44373 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746850631.269570   44373 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746850631.269572   44373 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746850631.269574   44373 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-05-10 09:47:11.273308: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Traceback (most recent call last):
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/save_model.py", line 4, in <module>
+    from core.yolov4 import YOLO, decode, filter_boxes
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/core/yolov4.py", line 6, in <module>
+    import core.utils as utils
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/core/utils.py", line 127, in <module>
+    def draw_bbox(image, bboxes, classes=read_class_names(cfg.YOLO.CLASSES), show_label=True):
+  File "/media/dhruv/Local Disk/Yolo-Lite/Yolo-Lite/tensorflow-yolov4-tflite/core/utils.py", line 77, in read_class_names
+    with open(class_file_name, 'r') as data:
+FileNotFoundError: [Errno 2] No such file or directory: './data/classes/coco.names'
+
+2025-05-10 09:47:16,459 ERROR: Failed to generate SavedModel

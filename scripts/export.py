@@ -1,0 +1,24 @@
+
+import logging, datetime, subprocess
+
+timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+logfile = f"logs/export_{timestamp}.log"
+logging.basicConfig(filename=logfile, level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
+logger = logging.getLogger()
+logger.info("Starting model export")
+
+
+result = subprocess.run(["darknet_to_tensorflow.py", 
+                         "--weights", "models/yolov4-tiny/last.weights",
+                         "--cfg", "cfg/yolov4-tiny-custom.cfg",
+                         "--output", "models/yolov4-tiny/yolov4-tiny.pb"])
+logger.info(result.stdout.decode())
+# Convert to TFLite
+import tensorflow as tf
+converter = tf.compat.v1.lite.TFLiteConverter.from_frozen_graph(
+    "models/yolov4-tiny/yolov4-tiny.pb",
+    input_arrays=["input"], output_arrays=["output"])
+tflite_model = converter.convert()
+with open("models/yolov4-tiny/yolov4-tiny.tflite", "wb") as f:
+    f.write(tflite_model)
+logger.info("Exported model to yolov4-tiny.tflite")
