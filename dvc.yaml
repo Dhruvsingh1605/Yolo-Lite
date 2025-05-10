@@ -1,25 +1,33 @@
 stages:
   prepare_data:
-    cmd: Disk/Yolo-Lite/Yolo-Lite/FurnitureDetection2.v3i.yolov8/data.yaml -d scripts/prepare_data.py
-      -o data/processed python scripts/prepare_data.py
+    cmd: python scripts/prepare_data.py
     deps:
-    - /media/dhruv/Local
+      - data/raw/data.yaml
+      - scripts/prepare_data.py
+    outs:
+      - data/processed
   train_model:
     cmd: python scripts/train.py
     deps:
-    - cfg/yolov4-tiny-custom.cfg
-    - data/processed
-    - scripts/train.py
+      - data/processed
+      - scripts/train.py
+      - cfg/yolov4-tiny-custom.cfg
     outs:
-    - models/yolov4-tiny/last.weights
+      - models/yolov4-tiny/last.weights
     metrics:
-    - models/yolov4-tiny/metrics.json
+      - models/yolov4-tiny/metrics.json
   evaluate_model:
     cmd: python scripts/evaluate.py
     deps:
-    - models/yolov4-tiny/last.weights
-    - data/processed
-    outs:
-    - models/yolov4-tiny/eval_metrics.json
+      - models/yolov4-tiny/last.weights
+      - data/processed
+      - scripts/evaluate.py
     metrics:
-    - models/yolov4-tiny/eval_metrics.json
+      - models/yolov4-tiny/eval_metrics.json
+  export_model:
+    cmd: python scripts/export.py
+    deps:
+      - models/yolov4-tiny/last.weights
+      - scripts/export.py
+    outs:
+      - models/yolov4-tiny/yolov4-tiny.tflite
